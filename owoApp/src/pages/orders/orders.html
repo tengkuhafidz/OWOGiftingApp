@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Past Gifts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let order of orders">
+      <ion-item (click)="viewOrderDetails($event, order)">
+        <ion-thumbnail item-start>
+          <img [src]="'http://localhost:8080/OwoGifting-war/images/assets/' + order.order.oiList[0].product.pCategory + '/' + order.order.oiList[0].product.pId + '-image.jpeg'" class="gift-image"/>
+        </ion-thumbnail>
+        <h2 [innerHTML]="order.order.oiList[0].product.pName"></h2>
+        <p>For {{order.order.orderAddress.firstName}}</p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="chooseGift($event, order.order.oiList[0].product)">
+          <ion-icon name="pricetag"></ion-icon>
+          Gift This
+        </button>
+        <button ion-button color="light" icon-start (click)="viewOrderDetails($event, order)">
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
