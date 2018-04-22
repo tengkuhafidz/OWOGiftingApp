@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Add Friend
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text>Cancel</span>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #addFriendForm="ngForm" (ngSubmit)="addFriend()" autocomplete="off">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input placeholder="Name" name="name" id="nameField"
+                       type="text" required [(ngModel)]="firstName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Mobile Number" name="mNumber" id="mNumberField"
+                       type="number" required [(ngModel)]="mobileNumber"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Address" name="aaddress" id="aaddressField"
+                       type="text" required [(ngModel)]="address" #username></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Postal Code" name="pCode" id="pCodeField"
+                       type="number" required [(ngModel)]="postalCode"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <button ion-button class="submit-btn" full type="submit"
+                [disabled]="!addFriendForm.form.valid">Add Friend
+        </button>
+      </ion-col>
+    </ion-row>
+  </form>
+<ion-content>

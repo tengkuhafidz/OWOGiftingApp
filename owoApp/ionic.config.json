@@ -1,8 +1,0 @@
-{
-  "name": "owoApp",
-  "app_id": "f9918a21",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
-}
